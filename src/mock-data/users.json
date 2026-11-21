@@ -1,0 +1,34 @@
+[
+    {
+        "id": "USR-001",
+        "name": "CEO User",
+        "email": "ceo@internal.com",
+        "password": "CEO@123",
+        "role": "CEO",
+        "status": "ACTIVE"
+    },
+    {
+        "id": "USR-002",
+        "name": "Admin User",
+        "email": "admin@internal.com",
+        "password": "Admin@123",
+        "role": "ADMIN",
+        "status": "ACTIVE"
+    },
+    {
+        "id": "USR-003",
+        "name": "Manager User",
+        "email": "manager@internal.com",
+        "password": "Manager@123",
+        "role": "MANAGER",
+        "status": "ACTIVE"
+    },
+    {
+        "id": "USR-004",
+        "name": "Employee User",
+        "email": "employee@internal.com",
+        "password": "Employee@123",
+        "role": "EMPLOYEE",
+        "status": "ACTIVE"
+    }
+]

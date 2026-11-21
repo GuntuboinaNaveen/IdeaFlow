@@ -1,0 +1,198 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="idea-task-flow" name="Idea to Task Completion">
+    <mxGraphModel dx="1713" dy="987" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="heading" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f2937;strokeColor=#1f2937;fontColor=#ffffff;align=left;spacingLeft=14;fontSize=17;" value="&lt;b&gt;INTERNAL – IDEA TO TASK: REVIEW, PARTICIPATION AND COMPLETION&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:12px&#39;&gt;Editable process flow | Employee • Manager • CEO • System&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="1600" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="Start" vertex="1">
+          <mxGeometry height="50" width="90" x="30" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="idea" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Submit Idea&lt;/b&gt;&lt;br&gt;Employee / Manager / CEO / Admin&lt;br&gt;Enter title, description, category and priority" vertex="1">
+          <mxGeometry height="100" width="180" x="155" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="review" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;spacing=8;" value="&lt;b&gt;Manager Reviews Idea&lt;/b&gt;&lt;br&gt;Review details and add comments" vertex="1">
+          <mxGeometry height="100" width="175" x="385" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="accept" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="&lt;b&gt;Accept Idea?&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="610" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="rejectIdea" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;spacing=8;" value="&lt;b&gt;Reject Idea&lt;/b&gt;&lt;br&gt;Record reason / comment&lt;br&gt;Idea status: REJECTED" vertex="1">
+          <mxGeometry height="85" width="155" x="600" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="convert" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;spacing=8;" value="&lt;b&gt;Convert Accepted Idea to Task&lt;/b&gt;&lt;br&gt;Prefill idea title and description&lt;br&gt;Prevent duplicate conversion" vertex="1">
+          <mxGeometry height="115" width="205" x="790" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="configure" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Create / Configure Task&lt;/b&gt;&lt;br&gt;Priority, dates, participants&lt;br&gt;Creator defines shared checklist template" vertex="1">
+          <mxGeometry height="115" width="205" x="1040" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="creatorJoin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;spacing=8;" value="&lt;b&gt;Creator clicks&lt;br&gt;“Join this task”&lt;/b&gt;&lt;br&gt;Immediate join; no approval" vertex="1">
+          <mxGeometry height="105" width="175" x="1290" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="taskActive" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;Task Active&lt;/b&gt;&lt;br&gt;AVAILABLE / ASSIGNED" vertex="1">
+          <mxGeometry height="70" width="150" x="1510" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="work" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Participants Work&lt;/b&gt;&lt;br&gt;Each participant gets their own copy&lt;br&gt;of shared checklist; completion tracked separately" vertex="1">
+          <mxGeometry height="110" width="185" x="1695" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="joinReq" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Other users&lt;/b&gt;&lt;br&gt;Request to join task" vertex="1">
+          <mxGeometry height="75" width="180" x="1285" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="joinDecision" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="&lt;b&gt;Creator or CEO&lt;br&gt;approves?&lt;/b&gt;" vertex="1">
+          <mxGeometry height="85" width="150" x="1510" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="joinApproved" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;spacing=8;" value="&lt;b&gt;Approved&lt;/b&gt;&lt;br&gt;Add participant and create&lt;br&gt;their own checklist" vertex="1">
+          <mxGeometry height="85" width="175" x="1700" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="joinRejected" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;spacing=8;" value="&lt;b&gt;Rejected&lt;/b&gt;&lt;br&gt;Request closed; task unchanged" vertex="1">
+          <mxGeometry height="75" width="170" x="1500" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="personal" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Personal checklist items&lt;/b&gt;&lt;br&gt;Each participant may add their own items.&lt;br&gt;Owner edits; creator and CEO can view." vertex="1">
+          <mxGeometry height="100" width="205" x="1285" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce5cd;strokeColor=#d79b00;fontSize=12;spacing=8;" value="&lt;b&gt;Creator &amp; CEO Monitor&lt;/b&gt;&lt;br&gt;View every participant’s shared and personal items,&lt;br&gt;completion status and progress (read-only for others)" vertex="1">
+          <mxGeometry height="100" width="285" x="1535" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="submit" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Submit Work&lt;/b&gt;&lt;br&gt;Participant submits after required items complete" vertex="1">
+          <mxGeometry height="90" width="205" x="1040" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="allSubmitted" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="&lt;b&gt;All participants&lt;br&gt;submitted?&lt;/b&gt;" vertex="1">
+          <mxGeometry height="75" width="145" x="800" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="managerReview" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;spacing=8;" value="&lt;b&gt;Manager Reviews Task&lt;/b&gt;&lt;br&gt;Review all submitted participant work" vertex="1">
+          <mxGeometry height="100" width="190" x="565" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="approved" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" value="&lt;b&gt;Approve?&lt;/b&gt;" vertex="1">
+          <mxGeometry height="75" width="125" x="345" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="completed" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="&lt;b&gt;Task Completed&lt;/b&gt;&lt;br&gt;Status: COMPLETED" vertex="1">
+          <mxGeometry height="80" width="160" x="145" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="changes" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;spacing=8;" value="&lt;b&gt;Request Changes&lt;/b&gt;&lt;br&gt;Comment required; task returns to IN_PROGRESS" vertex="1">
+          <mxGeometry height="85" width="190" x="345" y="865" as="geometry" />
+        </mxCell>
+        <mxCell id="rework" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;fontColor=#1f2937;spacing=8;" value="&lt;b&gt;Participants Update Work&lt;/b&gt;&lt;br&gt;Update checklists and resubmit" vertex="1">
+          <mxGeometry height="85" width="190" x="600" y="865" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="End" vertex="1">
+          <mxGeometry height="50" width="90" x="880" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="taskStates" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;TASK STATUS LIFECYCLE&lt;/b&gt;&lt;br&gt;AVAILABLE → ASSIGNED → IN_PROGRESS&lt;br&gt;→ IN_REVIEW → COMPLETED&lt;br&gt;&lt;br&gt;CANCELLED → Reactivate to previous status" vertex="1">
+          <mxGeometry height="125" width="300" x="1040" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="cancelRule" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce5cd;strokeColor=#d79b00;fontSize=12;spacing=8;" value="&lt;b&gt;Cancel / Reactivate&lt;/b&gt;&lt;br&gt;Creator can cancel and reactivate task.&lt;br&gt;Preserve participant and checklist progress." vertex="1">
+          <mxGeometry height="100" width="280" x="1400" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="rules" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;verticalAlign=top;spacing=10;" value="&lt;b&gt;ROLE RULES&lt;/b&gt;&lt;br&gt;• Manager reviews ideas and task completion.&lt;br&gt;• CEO has organization-wide monitoring and can approve/reject join requests.&lt;br&gt;• CEO does not automatically approve task completion.&lt;br&gt;• Participants edit only their own checklist progress." vertex="1">
+          <mxGeometry height="125" width="850" x="30" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="idea" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="idea" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="review" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="review" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="accept" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="accept" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16a34a;strokeWidth=2;endArrow=block;endFill=1;" target="convert" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="accept" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b91c1c;strokeWidth=2;endArrow=block;endFill=1;" target="rejectIdea" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="convert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="configure" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="configure" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="creatorJoin" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="creatorJoin" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="taskActive" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="taskActive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="work" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;exitX=0.588;exitY=0.045;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="submit" value="">
+          <mxGeometry relative="1" x="-0.1513" as="geometry">
+            <Array as="points">
+              <mxPoint x="1775" y="256.6" />
+              <mxPoint x="1775" y="160" />
+              <mxPoint x="1020" y="160" />
+              <mxPoint x="1020" y="620" />
+              <mxPoint x="1142.5" y="620" />
+            </Array>
+            <mxPoint x="1773.7800000000002" y="256.62000000000006" as="sourcePoint" />
+            <mxPoint x="1134.025" y="699.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="submit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="allSubmitted" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="allSubmitted" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16a34a;strokeWidth=2;endArrow=block;endFill=1;" target="managerReview" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="allSubmitted" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="work" value="No – wait for others">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="managerReview" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="approved" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="approved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16a34a;strokeWidth=2;endArrow=block;endFill=1;" target="completed" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="approved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b91c1c;strokeWidth=2;endArrow=block;endFill=1;" target="changes" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="changes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="rework" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="rework" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="work" value="Resubmit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="joinReq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="joinDecision" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="joinDecision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16a34a;strokeWidth=2;endArrow=block;endFill=1;" target="joinApproved" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="joinDecision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b91c1c;strokeWidth=2;endArrow=block;endFill=1;" target="joinRejected" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="joinApproved" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#16a34a;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="work" value="Participant added">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="work" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="joinReq" value="Other employee wants to join">
+          <mxGeometry relative="1" x="-0.0323" y="-100" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="work" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="personal" value="Add personal items">
+          <mxGeometry relative="1" x="-0.0391" y="-70" as="geometry">
+            <mxPoint x="70" y="-70" as="offset" />
+            <Array as="points">
+              <mxPoint x="1787.5" y="220" />
+              <mxPoint x="1270" y="220" />
+              <mxPoint x="1270" y="650" />
+              <mxPoint x="1387.5" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="personal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#334155;strokeWidth=2;endArrow=block;endFill=1;" target="monitor" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d97706;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="taskStates" value="Monitor status">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="taskActive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d97706;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="cancelRule" value="Cancel / reactivate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e28" edge="1" parent="1" source="cancelRule" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d97706;strokeWidth=2;endArrow=block;endFill=1;dashed=1;" target="taskStates" value="Status update">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
