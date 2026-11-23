@@ -1,0 +1,41 @@
+[
+  {
+    "id": "IDEA-1001",
+    "title": "Automate employee onboarding",
+    "description": "Create an automated onboarding workflow to reduce manual HR activities and improve the new employee experience.",
+    "category": "PROCESS_IMPROVEMENT",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "createdBy": "USR-004",
+    "createdByName": "Employee User",
+    "createdByRole": "EMPLOYEE",
+    "createdAt": "2026-11-10T09:30:00.000Z",
+    "updatedAt": "2026-11-10T09:30:00.000Z"
+  },
+  {
+    "id": "IDEA-1002",
+    "title": "Centralized internal knowledge base",
+    "description": "Build a searchable knowledge base for internal processes, documentation and frequently asked questions.",
+    "category": "TECHNOLOGY",
+    "priority": "MEDIUM",
+    "status": "UNDER_REVIEW",
+    "createdBy": "USR-003",
+    "createdByName": "Manager User",
+    "createdByRole": "MANAGER",
+    "createdAt": "2026-11-11T11:00:00.000Z",
+    "updatedAt": "2026-11-12T08:00:00.000Z"
+  },
+  {
+    "id": "IDEA-1003",
+    "title": "Reduce operational expenses",
+    "description": "Identify recurring operational costs that can be reduced through process optimization.",
+    "category": "COST_SAVING",
+    "priority": "LOW",
+    "status": "ACCEPTED",
+    "createdBy": "USR-002",
+    "createdByName": "Admin User",
+    "createdByRole": "ADMIN",
+    "createdAt": "2026-11-09T13:00:00.000Z",
+    "updatedAt": "2026-11-13T10:00:00.000Z"
+  }
+]
