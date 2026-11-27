@@ -18,12 +18,16 @@
     "description": "Build a searchable knowledge base for internal processes, documentation and frequently asked questions.",
     "category": "TECHNOLOGY",
     "priority": "MEDIUM",
-    "status": "UNDER_REVIEW",
+    "status": "CONVERTED_TO_TASK",
     "createdBy": "USR-003",
     "createdByName": "Manager User",
     "createdByRole": "MANAGER",
     "createdAt": "2026-11-11T11:00:00.000Z",
-    "updatedAt": "2026-11-12T08:00:00.000Z"
+    "updatedAt": "2026-11-26T09:59:10.089Z",
+    "reviewedBy": "USR-001",
+    "reviewedAt": "2026-11-26T09:56:03.840Z",
+    "reviewComment": "need to complete the task",
+    "convertedTaskId": "TASK-1795687150089-7FNAT"
   },
   {
     "id": "IDEA-1003",
@@ -37,5 +41,22 @@
     "createdByRole": "ADMIN",
     "createdAt": "2026-11-09T13:00:00.000Z",
     "updatedAt": "2026-11-13T10:00:00.000Z"
+  },
+  {
+    "id": "IDEA-1795771420065-7U9AT",
+    "title": "IdeaFlow",
+    "description": "Idea based note system that convert the idea into task and progress system",
+    "category": "PROCESS_IMPROVEMENT",
+    "priority": "LOW",
+    "status": "CONVERTED_TO_TASK",
+    "createdBy": "USR-003",
+    "createdByName": "Manager User",
+    "createdByRole": "MANAGER",
+    "createdAt": "2026-11-27T09:23:40.064Z",
+    "updatedAt": "2026-11-27T09:26:16.297Z",
+    "reviewedBy": "USR-003",
+    "reviewedAt": "2026-11-27T09:25:06.664Z",
+    "reviewComment": "Can progress the task",
+    "convertedTaskId": "TASK-1795771576297-XY7DU"
   }
 ]

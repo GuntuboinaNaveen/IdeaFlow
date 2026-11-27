@@ -16,11 +16,130 @@
         "status": "ASSIGNED",
         "assignedAt": "2026-11-23T13:13:06.786Z",
         "checklist": []
+      },
+      {
+        "userId": "USR-003",
+        "userName": "Manager User",
+        "role": "MANAGER",
+        "status": "ASSIGNED",
+        "assignedAt": "2026-11-27T09:27:16.320Z",
+        "checklist": []
+      }
+    ],
+    "joinRequests": [
+      {
+        "id": "JOIN-1795771603264-QXTE7",
+        "userId": "USR-003",
+        "userName": "Manager User",
+        "role": "MANAGER",
+        "status": "APPROVED",
+        "requestedAt": "2026-11-27T09:26:43.264Z",
+        "reviewedAt": "2026-11-27T09:27:16.320Z",
+        "reviewedBy": "USR-001",
+        "reviewedByName": "CEO User"
+      }
+    ],
+    "checklistTemplate": [],
+    "createdAt": "2026-11-23T09:54:32.779Z",
+    "updatedAt": "2026-11-27T09:27:16.320Z"
+  },
+  {
+    "id": "TASK-1795687150089-7FNAT",
+    "title": "Centralized internal knowledge base",
+    "description": "Build a searchable knowledge base for internal processes, documentation and frequently asked questions.",
+    "priority": "MEDIUM",
+    "status": "COMPLETED",
+    "createdBy": "USR-001",
+    "createdByName": "CEO User",
+    "sourceIdeaId": "IDEA-1002",
+    "participants": [
+      {
+        "userId": "USR-003",
+        "userName": "Manager User",
+        "role": "MANAGER",
+        "status": "APPROVED",
+        "assignedAt": "2026-11-26T09:59:10.089Z",
+        "checklist": [
+          {
+            "templateId": "CHK-1795687150089-1",
+            "completed": true,
+            "completedAt": "2026-11-27T09:55:56.377Z"
+          }
+        ],
+        "submittedAt": "2026-11-27T09:55:59.281Z",
+        "reviewComment": "a"
       }
     ],
     "joinRequests": [],
-    "checklistTemplate": [],
-    "createdAt": "2026-11-23T09:54:32.779Z",
-    "updatedAt": "2026-11-23T13:13:06.786Z"
+    "checklistTemplate": [
+      {
+        "id": "CHK-1795687150089-1",
+        "title": "get the flow check points to complete the task",
+        "required": true
+      }
+    ],
+    "startDate": "2026-11-25",
+    "dueDate": "2026-11-30",
+    "createdAt": "2026-11-26T09:59:10.089Z",
+    "updatedAt": "2026-11-27T09:56:08.801Z",
+    "reviewerId": "USR-003",
+    "reviewerName": "Manager User",
+    "reviewedAt": "2026-11-27T09:56:08.801Z",
+    "reviewComment": "a"
+  },
+  {
+    "id": "TASK-1795771576297-XY7DU",
+    "title": "IdeaFlow",
+    "description": "Idea based note system that convert the idea into task and progress system",
+    "priority": "MEDIUM",
+    "status": "ASSIGNED",
+    "createdBy": "USR-001",
+    "createdByName": "CEO User",
+    "sourceIdeaId": "IDEA-1795771420065-7U9AT",
+    "participants": [
+      {
+        "userId": "USR-003",
+        "userName": "Manager User",
+        "role": "MANAGER",
+        "status": "ASSIGNED",
+        "assignedAt": "2026-11-27T09:35:12.121Z",
+        "checklist": [
+          {
+            "templateId": "CHK-1795771576297-1",
+            "completed": false
+          },
+          {
+            "templateId": "CHK-1795771576297-2",
+            "completed": false
+          },
+          {
+            "templateId": "CHK-1795779611138-LZHOH",
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "joinRequests": [],
+    "checklistTemplate": [
+      {
+        "id": "CHK-1795771576297-1",
+        "title": "create an tasks.",
+        "required": true
+      },
+      {
+        "id": "CHK-1795771576297-2",
+        "title": "create an flow diagram for the task management",
+        "required": true
+      },
+      {
+        "id": "CHK-1795779611138-LZHOH",
+        "title": "Task need to complete with config json",
+        "required": true
+      }
+    ],
+    "startDate": "2026-11-27",
+    "dueDate": "2026-12-07",
+    "createdAt": "2026-11-27T09:26:16.297Z",
+    "updatedAt": "2026-11-27T11:40:11.138Z"
   }
 ]
