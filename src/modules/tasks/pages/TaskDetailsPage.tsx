@@ -54,6 +54,10 @@ export default function TaskDetailsPage() {
     const pendingJoinRequests = (task.joinRequests ?? []).filter((request) => request.status === "PENDING");
     const canRequestToJoin = Boolean(user) && !participant &&
         (task.status === "ASSIGNED" || task.status === "IN_PROGRESS");
+    const canReactivate = hasPermission(PERMISSIONS.TASK_REACTIVATE);
+    const canAddSharedChecklist = Boolean(isCreator || canReactivate) &&
+        (task.status !== "CANCELLED" && task.status !== "IN_REVIEW") &&
+        (task.status !== "COMPLETED" || canReactivate);
     const canApprove = hasPermission(PERMISSIONS.REVIEW_APPROVE);
     const canRequestChanges = hasPermission(PERMISSIONS.REVIEW_REQUEST_CHANGES);
     const canWork =
@@ -124,11 +128,11 @@ export default function TaskDetailsPage() {
 
             <TaskParticipantList participants={task.participants} />
 
-            {isCreator && !["COMPLETED", "CANCELLED", "IN_REVIEW"].includes(task.status) && (
+            {canAddSharedChecklist && (
                 <section className="rounded-xl border border-indigo-200 bg-white p-6">
                     <h2 className="font-semibold text-slate-900">Shared Task Checklist</h2>
                     <p className="mt-1 text-sm text-slate-500">
-                        Add task-level checklist items here. Every participant will see each item in their own checklist and track their own completion.
+                        Add task-level checklist items here. Adding an item to a completed task automatically reopens it and preserves previous work. Every participant will see each item in their own checklist and track their own completion.
                     </p>
                     <form
                         className="mt-4 flex flex-col gap-3 sm:flex-row"
@@ -300,6 +304,28 @@ Join the task to become a participant and receive your own checklist. Your reque
                 }
             />
 
+            {(task.reactivationHistory?.length ?? 0) > 0 && (
+                <section className="rounded-xl border border-amber-200 bg-white p-6">
+                    <h2 className="font-semibold text-slate-900">Reactivation History</h2>
+                    <div className="mt-3 space-y-3">
+                        {[...(task.reactivationHistory ?? [])].reverse().map((event) => (
+                            <div key={event.id} className="rounded-lg bg-amber-50 p-3">
+                                <p className="text-sm font-medium text-slate-800">
+                                    Reopened by {event.reactivatedByName}
+                                </p>
+                                <p className="mt-1 text-xs text-slate-500">
+                                    {new Date(event.reactivatedAt).toLocaleString()} · Previous status: {event.previousStatus}
+                                </p>
+                                <p className="mt-2 text-sm text-slate-600">{event.reason}</p>
+                                <p className="mt-1 text-xs text-slate-500">
+                                    Participant states and previous review details were archived for this cycle.
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
             {task.reviewComment && (
                 <section className="rounded-xl border border-slate-200 bg-white p-6">
                     <h2 className="font-semibold text-slate-900">Latest Review</h2>
@@ -326,19 +352,21 @@ Join the task to become a participant and receive your own checklist. Your reque
                     </button>
                 )}
 
-            {isCreator && hasPermission(PERMISSIONS.TASK_CANCEL) &&
-                task.status === "CANCELLED" && (
+            {canReactivate && ["CANCELLED", "COMPLETED"].includes(task.status) && (
                     <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
                         <p className="text-sm text-amber-800">
-                            This task is cancelled. Reactivating it will restore its previous status and keep participant checklist progress.
+                            This task is {task.status.toLowerCase()}. Reactivating it preserves participant checklist progress and previous review history.
                         </p>
                         <button
                             type="button"
                             onClick={() => {
-                                const confirmed = window.confirm(
-                                    "Reactivate this task and restore its previous status?"
+                                const reason = window.prompt(
+                                    "Why is this task being reactivated?",
+                                    "Additional work is required."
                                 );
-                                if (confirmed) runAction(() => reactivateTask(task.id));
+                                if (reason !== null) {
+                                    runAction(() => reactivateTask(task.id, reason));
+                                }
                             }}
                             className="mt-3 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700"
                         >

@@ -21,6 +21,7 @@ export const PERMISSIONS = {
     TASK_ASSIGN: "task:assign",
     TASK_PICKUP: "task:pickup",
     TASK_CANCEL: "task:cancel",
+    TASK_REACTIVATE: "task:reactivate",
 
     // Checklist
     CHECKLIST_CREATE: "checklist:create",
@@ -45,6 +46,7 @@ export const PERMISSIONS = {
 
     // Reports
     REPORT_VIEW: "report:view",
+
 
 } as const;
 

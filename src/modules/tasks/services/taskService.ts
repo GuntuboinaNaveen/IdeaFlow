@@ -5,6 +5,7 @@ import type {
     UpdateTaskInput,
     TaskParticipant,
     TaskJoinRequest,
+    TaskReactivationEvent,
 } from "../types/task.types";
 
 const STORAGE_KEY = "internal_tasks";
@@ -504,17 +505,14 @@ export const taskService = {
 
     addSharedChecklistItem(
         id: string,
-        creatorId: string,
+        actor: ParticipantProfile,
         title: string,
         required = true
     ): Task {
         const tasks = readTasks();
         const task = getTaskOrThrow(tasks, id);
 
-        if (task.createdBy !== creatorId) {
-            throw new Error("Only the task creator can add shared checklist items.");
-        }
-        if (["COMPLETED", "CANCELLED", "IN_REVIEW"].includes(task.status)) {
+        if (task.status === "CANCELLED" || task.status === "IN_REVIEW") {
             throw new Error("Shared checklist items cannot be added in this task status.");
         }
 
@@ -529,21 +527,35 @@ export const taskService = {
             required,
         };
 
-        task.checklistTemplate.push(template);
+        const wasCompleted = task.status === "COMPLETED";
+        if (wasCompleted) {
+            this.reactivate(id, actor, `New shared checklist item: ${cleanTitle}`);
+        }
 
-        // The shared task item appears in every participant's checklist,
-        // while completion remains individual to each participant.
-        task.participants = task.participants.map((participant) => ({
+        const latestTask = getTaskOrThrow(readTasks(), id);
+        latestTask.checklistTemplate.push(template);
+        if (wasCompleted) {
+            const latestEvent = latestTask.reactivationHistory?.at(-1);
+            if (latestEvent) latestEvent.addedChecklistItemIds.push(template.id);
+        }
+
+        // Preserve every existing checklist item and completion timestamp.
+        // Only the newly introduced item starts as pending for each participant.
+        latestTask.participants = latestTask.participants.map((participant) => ({
             ...participant,
+            status: wasCompleted ? "IN_PROGRESS" : participant.status,
             checklist: [
                 ...participant.checklist,
                 { templateId: template.id, completed: false },
             ],
         }));
 
-        task.updatedAt = now;
-        saveTasks(tasks);
-        return task;
+        latestTask.updatedAt = now;
+        const latestTasks = readTasks();
+        const latestIndex = latestTasks.findIndex((item) => item.id === id);
+        latestTasks[latestIndex] = latestTask;
+        saveTasks(latestTasks);
+        return latestTask;
     },
 
     addPersonalChecklistItem(
@@ -774,39 +786,65 @@ export const taskService = {
         return task;
     },
 
-    reactivate(id: string): Task {
+    reactivate(
+        id: string,
+        actor: ParticipantProfile,
+        reason = "Task reopened for additional work."
+    ): Task {
         const tasks = readTasks();
         const task = getTaskOrThrow(tasks, id);
 
-        if (task.status !== "CANCELLED") {
-            throw new Error("Only cancelled tasks can be reactivated.");
+        if (task.status !== "CANCELLED" && task.status !== "COMPLETED") {
+            throw new Error("Only completed or cancelled tasks can be reactivated.");
         }
 
-        // Older localStorage records may not have cancelledFromStatus.
-        // Infer a safe workflow state without discarding participant progress.
-        const inferredStatus: Exclude<Task["status"], "CANCELLED" | "COMPLETED"> =
-            task.participants.length === 0
-                ? "AVAILABLE"
-                : task.participants.every(
-                    (participant) =>
-                        participant.status === "SUBMITTED" ||
-                        participant.status === "APPROVED"
-                )
-                    ? "IN_REVIEW"
-                    : task.participants.some(
-                        (participant) =>
-                            participant.status === "IN_PROGRESS" ||
-                            participant.status === "CHANGES_REQUESTED" ||
-                            participant.checklist.some((item) => item.completed)
-                    )
-                        ? "IN_PROGRESS"
-                        : "ASSIGNED";
+        const now = new Date().toISOString();
+        const previousStatus = task.status;
+        const event: TaskReactivationEvent = {
+            id: `REACT-${Date.now()}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
+            reactivatedAt: now,
+            reactivatedBy: actor.id,
+            reactivatedByName: actor.name,
+            reason: reason.trim() || "Task reopened for additional work.",
+            previousStatus,
+            previousReviewerId: task.reviewerId,
+            previousReviewerName: task.reviewerName,
+            previousReviewedAt: task.reviewedAt,
+            previousReviewComment: task.reviewComment,
+            participantSnapshot: task.participants.map((participant) => ({
+                userId: participant.userId,
+                userName: participant.userName,
+                status: participant.status,
+                submittedAt: participant.submittedAt,
+                reviewComment: participant.reviewComment,
+            })),
+            addedChecklistItemIds: [],
+        };
 
-        const restoredStatus = task.cancelledFromStatus ?? inferredStatus;
-        task.status = restoredStatus;
+        task.reactivationHistory = [...(task.reactivationHistory ?? []), event];
+
+        if (previousStatus === "COMPLETED") {
+            // Start a new work cycle without deleting the previous approval.
+            // Its reviewer details and participant submission states are captured above.
+            task.participants = task.participants.map((participant) => ({
+                ...participant,
+                status: "IN_PROGRESS",
+            }));
+            task.status = task.participants.length ? "IN_PROGRESS" : "AVAILABLE";
+        } else {
+            const inferredStatus: Exclude<Task["status"], "CANCELLED" | "COMPLETED"> =
+                task.participants.length === 0
+                    ? "AVAILABLE"
+                    : task.participants.some((participant) =>
+                        participant.status === "IN_PROGRESS" ||
+                        participant.status === "CHANGES_REQUESTED" ||
+                        participant.checklist.some((item) => item.completed)
+                    ) ? "IN_PROGRESS" : "ASSIGNED";
+            task.status = task.cancelledFromStatus ?? inferredStatus;
+        }
+
         delete task.cancelledFromStatus;
-        task.updatedAt = new Date().toISOString();
-
+        task.updatedAt = now;
         saveTasks(tasks);
         return task;
     },

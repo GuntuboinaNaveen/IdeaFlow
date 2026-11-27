@@ -187,14 +187,25 @@ export function useTasks() {
             if (!user) throw new Error("Please log in first.");
             const existing = taskService.getById(id);
             if (!existing) throw new Error("Task not found.");
-            if (existing.createdBy !== user.id) {
-                throw new Error("Only the task creator can add shared checklist items.");
+            const canManageSharedChecklist =
+                existing.createdBy === user.id ||
+                hasPermission(PERMISSIONS.TASK_REACTIVATE);
+            if (!canManageSharedChecklist) {
+                throw new Error("You do not have permission to add shared checklist items.");
             }
-            const task = taskService.addSharedChecklistItem(id, user.id, title, required);
+            if (existing.status === "COMPLETED" && !hasPermission(PERMISSIONS.TASK_REACTIVATE)) {
+                throw new Error("You do not have permission to reopen completed tasks.");
+            }
+            const task = taskService.addSharedChecklistItem(
+                id,
+                { id: user.id, name: user.name, role: user.role },
+                title,
+                required
+            );
             refreshTasks();
             return task;
         },
-        [user, refreshTasks]
+        [user, hasPermission, refreshTasks]
     );
 
     const addPersonalChecklistItem = useCallback(
@@ -354,22 +365,21 @@ export function useTasks() {
     );
 
     const reactivateTask = useCallback(
-        (id: string) => {
+        (id: string, reason = "Task reopened for additional work.") => {
             if (!user) throw new Error("Please log in first.");
 
-            if (!hasPermission(PERMISSIONS.TASK_CANCEL)) {
+            if (!hasPermission(PERMISSIONS.TASK_REACTIVATE)) {
                 throw new Error("You do not have permission to reactivate tasks.");
             }
 
             const existing = taskService.getById(id);
-
             if (!existing) throw new Error("Task not found.");
 
-            if (existing.createdBy !== user.id) {
-                throw new Error("Only the task creator can reactivate this task.");
-            }
-
-            const task = taskService.reactivate(id);
+            const task = taskService.reactivate(
+                id,
+                { id: user.id, name: user.name, role: user.role },
+                reason
+            );
             refreshTasks();
             return task;
         },

@@ -18,6 +18,8 @@ export type ChecklistStatus = "PENDING" | "COMPLETED";
 
 export type TaskPriority = "LOW" | "MEDIUM" | "HIGH" | "URGENT";
 
+
+
 export interface TaskChecklistTemplate {
     id: string;
     title: string;
@@ -62,6 +64,36 @@ export interface TaskParticipant {
     reviewComment?: string;
 }
 
+
+export interface TaskReviewSnapshot {
+    reviewerId?: string;
+    reviewerName?: string;
+    reviewedAt?: string;
+    reviewComment?: string;
+}
+
+export interface TaskReactivationEvent {
+    id: string;
+    reactivatedBy: string;
+    reactivatedByName: string;
+    reactivatedAt: string;
+    reason: string;
+    previousStatus: TaskStatus;
+    previousReviewerId?: string;
+    previousReviewerName?: string;
+    previousReviewedAt?: string;
+    previousReviewComment?: string;
+    participantSnapshot: Array<{
+        userId: string;
+        userName: string;
+        status: ParticipantStatus;
+        submittedAt?: string;
+        reviewComment?: string;
+    }>;
+    addedChecklistItemIds: string[];
+    previousReview?: TaskReviewSnapshot;
+}
+
 export interface Task {
     id: string;
     title: string;
@@ -79,6 +111,8 @@ export interface Task {
     participants: TaskParticipant[];
     /** Optional for backward compatibility with tasks created before join requests existed. */
     joinRequests?: TaskJoinRequest[];
+    /** Audit trail for completed/cancelled task reactivation cycles. */
+    reactivationHistory?: TaskReactivationEvent[];
     checklistTemplate: TaskChecklistTemplate[];
 
     startDate?: string;
@@ -91,6 +125,7 @@ export interface Task {
 
     createdAt: string;
     updatedAt: string;
+
 }
 
 export interface CreateTaskInput {
